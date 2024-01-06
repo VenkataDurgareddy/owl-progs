@@ -1,0 +1,22 @@
+class Solution {
+public:
+	int sumOfPowers(int a, int b){
+	    // Code here
+	    int cnt=0;
+        int n;
+        while(a<=b){
+            n=a;
+            for(int i=2; i*i<=n; i++){
+                while(n%i==0){
+                    cnt++;
+                    n=n/i;
+                }
+            }
+            if(n>1){
+                cnt++;
+            }
+            a++;
+        }
+        return cnt;
+	}
+};
