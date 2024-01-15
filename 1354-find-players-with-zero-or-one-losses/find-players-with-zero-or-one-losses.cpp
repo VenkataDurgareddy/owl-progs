@@ -25,8 +25,6 @@ public:
                onelost.push_back(it.first);
            }
        }
-       sort(noloss.begin(),noloss.end());
-       sort(onelost.begin(),onelost.end());
        ans.push_back(noloss);
        ans.push_back(onelost);
         return ans;
