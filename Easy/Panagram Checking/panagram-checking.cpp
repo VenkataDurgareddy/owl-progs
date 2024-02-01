@@ -14,20 +14,17 @@ class Solution
     //Function to check if a string is Pangram or not.
     bool checkPangram (string s) {
         // your code here
-        set<char>ch;
+        set<char>ss;
         transform(s.begin(),s.end(),s.begin(),::tolower);
         for(int i=0;i<s.length();i++)
         {
-            if((s[i]>='A' and s[i]<='Z') or (s[i]>='a' and s[i]<='z'))
+            if(s[i]>='a' and s[i]<='z')
             {
-                ch.insert(s[i]);
+                ss.insert(s[i]);
             }
         }
-        if(ch.size()==26)
-        {
-            return 1;
-        }
-        return 0;
+        if(ss.size()==26) return true;
+        return false;
     }
 
 };
