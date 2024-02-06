@@ -8,7 +8,7 @@ public:
             sort(x.begin(),x.end());
             m[x].push_back(it);
         }
-        vector<vector<string>> ans;
+        vector<vector<string>>ans;
         for(auto it:m)
         {
             ans.push_back(it.second);
