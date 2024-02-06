@@ -11,12 +11,12 @@ class Solution
     int dp[1000][1000];
     long long ks(int w,int wt[],int val[],int n,int i)
     {
-        if(i==n)
+        if(i>=n)
         {
-            if(w>=wt[i])
-            {
-                return val[i];
-            }
+            // if(w>=wt[i])
+            // {
+            //     return val[i];
+            // }
             return 0;
         }
         if(dp[i][w]!=-1) return dp[i][w];
@@ -34,7 +34,7 @@ class Solution
        int i=0;
        int k=W;
        memset(dp,-1,sizeof(dp));
-       int ans=ks(W,wt,val,n-1,i);
+       int ans=ks(W,wt,val,n,i);
        return ans;
     }
 };
