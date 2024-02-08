@@ -5,7 +5,7 @@ public:
             return dp[n];
         
         int result = n;
-        for (int i = 0; i < v.size(); ++i) {
+        for (int i = 0; i < v.size(); i++) {
             if (n - v[i] >= 0) {
                 result = min(result, 1 + perfect(dp, v, n - v[i]));
             }
