@@ -3,28 +3,30 @@
 using namespace std;
 
 // } Driver Code Ends
-class Solution
-{
-    public:
-    //Function to count number of ways to reach the nth stair.
-    int countWays(int n)
-    {
-        // your code here
-        long long mod=1e9+7;
-        if(n<=3)
-        {
-            return n;
+
+int mod=1e9+7;
+int dp[100001];
+class Solution {
+    long long countways(int n) {
+        if(dp[n]!=-1) return dp[n];
+        if (n == 0) return 1; // Base case, there's one way to reach the 0th stair
+        if (n < 0) return 0;  // Base case, if n becomes negative, no way to reach
+        long long onestep = 0, twostep = 0;
+        if (n - 1 >= 0) {
+            onestep = countways(n - 1);
         }
-        long long int a=2;
-        long long int b=3;
-        long long int c=a+b;
-        for(int i=0;i<n-3;i++)
-        {
-            c=(a+b)%mod;
-            a=b;
-            b=c;
+        if (n - 2 >= 0) {
+            twostep = countways(n - 2);
         }
-        return c%mod;
+        return dp[n]=(onestep + twostep)%mod;
+    }
+public:
+    // Function to count number of ways to reach the nth stair
+    // when order does not matter.
+    long long countWays(int n) {
+        memset(dp,-1,sizeof(dp));
+        long long ways = countways(n);
+        return ways%mod;
     }
 };
 
