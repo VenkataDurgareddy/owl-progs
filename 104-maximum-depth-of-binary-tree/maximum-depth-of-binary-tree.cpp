@@ -11,22 +11,22 @@
  */
 class Solution {
 public:
-    int maxdep(TreeNode* root)
+    int ans=0;
+    void maxdepth(TreeNode* root,int cnt)
     {
-        if(root==nullptr)return 0;
-        int left=1,right=1;
-        if(root->left!=NULL)
+        if(root==nullptr)
         {
-            left=1+maxdep(root->left);
+            ans=max(ans,cnt);
+            return;
         }
-        if(root->right!=NULL)
-        {
-            right=1+maxdep(root->right);
-        }
-        return max(left,right);
+      
+        maxdepth(root->left,cnt+1);
+       
+        maxdepth(root->right,cnt+1);
+        
     }
     int maxDepth(TreeNode* root) {
-        int ans=maxdep(root);
+        maxdepth(root,0);
         return ans;
     }
 };
