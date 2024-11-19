@@ -8,7 +8,7 @@ public:
         {
             sum+=nums[j];
             m[nums[j]]++;
-            if((j-i)+1>k)
+            while((j-i)+1>k)
             {
                sum-=nums[i];
                 m[nums[i]]--;
